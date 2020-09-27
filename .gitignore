@@ -2,3 +2,4 @@
 *.pyc
 .DS_Store
 archive/making.ipynb
+archive/tester.py
