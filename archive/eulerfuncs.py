@@ -91,7 +91,7 @@ def prime_factors(n):
 def _divs(n):
     'Memoized recursive function returning prime factors of n as a list'
     for i in range(2, int(math.sqrt(n)+1)):
-        d, m  = divmod(n, i)
+        d, m = divmod(n, i)
         if not m:
             return [i] + _divs(d)
     return [n]
@@ -109,3 +109,13 @@ def proper_divs(n):
     except KeyError:
         pass
     return divs or ({1} if n != 1 else set())
+
+
+def fib(n):
+    v1, v2, v3 = 1, 1, 0
+    for rec in bin(n)[3:]:
+        calc = v2*v2
+        v1, v2, v3 = v1*v1+calc, (v1+v3)*v2, calc+v3*v3
+        if rec == '1':
+            v1, v2, v3 = v1+v2, v1, v2
+    return v2
